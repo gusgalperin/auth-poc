@@ -6,13 +6,13 @@ const router = Router();
 const api = new EventsApi();
 
 router.get('/', [verifyToken], async (req, res) => {
-    res.send('secured content')
+    res.send(await api.buscarTodo())
 })
 
 router.post('/', async  (req, res) => {
     console.log(req.body)
     const result = await api.crearEvento(req.body)
-    res.status(401);
+    res.status(201);
     res.send(result);
 })
 

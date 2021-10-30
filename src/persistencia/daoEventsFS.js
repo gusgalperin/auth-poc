@@ -17,6 +17,11 @@ class DaoEventsFs {
         const txt = JSON.stringify(events, null, 2)
         await fs.promises.writeFile(this.ruta, txt)
     }
+
+    async getByApiKey(apikey){
+        const events = await this.getAll()
+        return events.find(x => x.apiKey == apikey);
+    }
 }
 
 export default DaoEventsFs

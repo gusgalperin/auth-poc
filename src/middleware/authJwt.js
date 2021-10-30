@@ -1,25 +1,21 @@
-import jwt from 'jsonwebtoken'
-import {SECRET} from '../config.js'
+import { checkJwt } from '../security/jwt.js'
 
-function verifyToken (req, res, next) {
-    let token = req.headers["x-access-token"];
-  
+async function verifyToken (req, res, next) {
+    const token = req.headers["x-access-token"];
+
     if (!token) {
-      return res.status(403).send({
-        message: "No token provided!"
-      });
+      res.status(403)
+      res.send("No token provided");
+      return;
     }
-  
-    jwt.verify(token, SECRET, async (err, decoded) => {
-      if (err) {
-        return res.status(401).send({
-          message: "Unauthorized!"
-        });
-      }
-      req.userId = decoded.id;
-      
-      await next();
-    });
+
+    if(!await checkJwt(token)){
+      res.status(401)
+      res.send("Unauthorized");
+      return
+    }
+
+    await next();
 };
 
 export { verifyToken }

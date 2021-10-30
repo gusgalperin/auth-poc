@@ -1,5 +1,6 @@
 import express from 'express'
 import {router as eventsRouter } from './ruteo/eventsRouter.js'
+import {router as authRouter } from './ruteo/authRouter.js'
 
 class Server {
 
@@ -10,11 +11,8 @@ class Server {
         const app = express()
 
         app.use(express.json())
-        app.use((err, req, res, next) => {
-            console.error(err.stack);
-            res.status(500).send('Something broke!');
-        })
         app.use('/api/events', eventsRouter)
+        app.use('/api/auth', authRouter)
 
         this.app = app;
     }
