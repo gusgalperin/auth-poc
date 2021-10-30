@@ -4,10 +4,10 @@ import {SECRET} from '../config.js'
 async function checkJwt(token){
     try{
         const decoded = await jwt.verify(token, SECRET);
-        return true;
+        return decoded;
     }
     catch(err){
-        return false;
+        throw new Error(`invalid token: ${err.message}`)
     }
 }
 
