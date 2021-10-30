@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "b413a417-80dd-437c-b16c-634e46bf2818",
+		"name": "TP2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get secured",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ1MTQ0ODFhLTRkMjctNGYxMi1hNzM0LTc5MDgzMWNhZDg2MCIsImFwaUtleSI6IlpEVXhORFE0TVdFdE5HUXlOeTAwWmpFeUxXRTNNelF0Tnprd09ETXhZMkZrT0RZd2ZFRlNSMTlEU0VsTVJWOHdPUzB5TURJeCIsImlhdCI6MTYzNTYyMjc4NywiZXhwIjoxNjM1NjI2Mzg3fQ.VFJGpJ2J70y7wQWzPBNCi-eVqZitqo6CewghU_PL410",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8010/api/events",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add event",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo\": \"ARG_CHILE_09-2021\",\r\n\t\"descripcion\": \"Venta de entradas para el partido de Argentina vs Chile por la fecha 24 de las eliminatorias para la copa del mundo Qatar 2022\",\r\n\t\"fechaHoraInicioEvento\": \"2021-10-29 00:00:00\",\r\n\t\"fechaHoraFinEvento\": \"2021-10-29 06:00:00\",\r\n\t\"fechaHoraInicioEncolado\": \"2021-10-28 22:00:00\",\r\n\t\"tiempoEstimadoAtencionPorUsuarioEnMinutos\": 5,\r\n\t\"usuariosRecurrentes\": 1\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8010/api/events",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"apikey\": \"ZDUxNDQ4MWEtNGQyNy00ZjEyLWE3MzQtNzkwODMxY2FkODYwfEFSR19DSElMRV8wOS0yMDIx\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8010/api/auth/access-token",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"auth",
+						"access-token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
