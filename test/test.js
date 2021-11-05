@@ -9,21 +9,27 @@ const URL = `http://localhost:${PORT}/api`
 const dao = getDaoEvents();
 
 let tests = [
-    casoFeliz,
-    casoSinApiKeyAlPedirToken,
-    casoApiKeyErroreaAlPedirToken,
-    casoSinTokenAlPedirRecursoSeguro,
-    casoTokenInvalidoAlPedirRecursoSeguro
+    {desc: 'caso feliz', test: casoFeliz},
+    {desc: 'sin apikey al pedir token', test: casoSinApiKeyAlPedirToken},
+    {desc: 'apikey invalida al pedir token', test: casoApiKeyErroreaAlPedirToken},
+    {desc: 'sin token al pedir recurso seguro', test: casoSinTokenAlPedirRecursoSeguro},
+    {desc: 'token invalido al pedir recurso seguro', test: casoTokenInvalidoAlPedirRecursoSeguro}
 ]
 
 await run(tests)
 
-async function run(){
+async function run(tests){
     await server.conectar()
     
+    let contador = 1;
+
     for (const test of tests) {
-        await test()
+        console.log(`${contador} - probando caso: ${test.desc}`)
+        
+        await test.test()
         await borrarTodo()
+
+        contador++;
 
         console.log('-------------------------------------------')
     }
@@ -32,8 +38,6 @@ async function run(){
 }
 
 async function casoFeliz(){
-    console.log('probando caso feliz')
-
     let eventoCreado = await crearEvento();
 
     let token = await obtenerAccessToken(eventoCreado.apiKey)
@@ -42,8 +46,6 @@ async function casoFeliz(){
 }
 
 async function casoSinApiKeyAlPedirToken(){
-    console.log('probando caso: sin apikey al pedir token')
-
     let eventoCreado = await crearEvento();
 
     try {
@@ -54,8 +56,6 @@ async function casoSinApiKeyAlPedirToken(){
 }
 
 async function casoApiKeyErroreaAlPedirToken(){
-    console.log('probando caso: apikey invalida al pedir token')
-
     let eventoCreado = await crearEvento();
 
     try {
@@ -66,8 +66,6 @@ async function casoApiKeyErroreaAlPedirToken(){
 }
 
 async function casoSinTokenAlPedirRecursoSeguro() {
-    console.log('probando caso: sin token al pedir recurso seguro')
-
     let eventoCreado = await crearEvento();
 
     let token = await obtenerAccessToken(eventoCreado.apiKey)
@@ -80,8 +78,6 @@ async function casoSinTokenAlPedirRecursoSeguro() {
 }
 
 async function casoTokenInvalidoAlPedirRecursoSeguro() {
-    console.log('probando caso: token invalido al pedir recurso seguro')
-
     let eventoCreado = await crearEvento();
 
     let token = await obtenerAccessToken(eventoCreado.apiKey)

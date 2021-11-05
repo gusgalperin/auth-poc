@@ -5,11 +5,11 @@ import EventsApi from '../negocio/eventsApi.js'
 const router = Router();
 const api = new EventsApi();
 
-router.get('/', [verifyToken], async (req, res) => {
+router.get('/', verifyToken, async (req, res) => {
     res.send(await api.buscarTodo())
 })
 
-router.get('/:id', [verifyToken], async (req, res) => {
+router.get('/:id', verifyToken, async (req, res) => {
     const evento = await api.buscarPorId(req.params.id)
     if (evento) {
         res.send(evento)
