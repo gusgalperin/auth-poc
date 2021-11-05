@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "codigo": "ARG_CHILE_09-2021",
+    "descripcion": "Venta de entradas para el partido de Argentina vs Chile por la fecha 24 de las eliminatorias para la copa del mundo Qatar 2022",
+    "fechaHoraInicioEvento": "2021-10-29 00:00:00",
+    "fechaHoraFinEvento": "2021-10-29 06:00:00",
+    "fechaHoraInicioEncolado": "2021-10-28 22:00:00",
+    "tiempoEstimadoAtencionPorUsuarioEnMinutos": 5,
+    "usuariosRecurrentes": 1,
+    "id": "7757e417-a503-43df-9fb0-418d8d899129",
+    "apiKey": "Nzc1N2U0MTctYTUwMy00M2RmLTlmYjAtNDE4ZDhkODk5MTI5fEFSR19DSElMRV8wOS0yMDIx"
+  }
+]

@@ -12,19 +12,20 @@
 				"header": [
 					{
 						"key": "x-access-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ1MTQ0ODFhLTRkMjctNGYxMi1hNzM0LTc5MDgzMWNhZDg2MCIsImFwaUtleSI6IlpEVXhORFE0TVdFdE5HUXlOeTAwWmpFeUxXRTNNelF0Tnprd09ETXhZMkZrT0RZd2ZFRlNSMTlEU0VsTVJWOHdPUzB5TURJeCIsImlhdCI6MTYzNTYyMjc4NywiZXhwIjoxNjM1NjI2Mzg3fQ.VFJGpJ2J70y7wQWzPBNCi-eVqZitqo6CewghU_PL410",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc3NTdlNDE3LWE1MDMtNDNkZi05ZmIwLTQxOGQ4ZDg5OTEyOSIsImFwaUtleSI6Ik56YzFOMlUwTVRjdFlUVXdNeTAwTTJSbUxUbG1ZakF0TkRFNFpEaGtPRGs1TVRJNWZFRlNSMTlEU0VsTVJWOHdPUzB5TURJeCIsImlhdCI6MTYzNjA3Mjk4MCwiZXhwIjoxNjM2MDc2NTgwfQ.UsIyLv499dP6xk6f6JoIKQ_FBCIIk-JEzGCSUS_DBhA",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "localhost:8010/api/events",
+					"raw": "localhost:8010/api/events/7757e417-a503-43df-9fb0-418d8d899129",
 					"host": [
 						"localhost"
 					],
 					"port": "8010",
 					"path": [
 						"api",
-						"events"
+						"events",
+						"7757e417-a503-43df-9fb0-418d8d899129"
 					]
 				}
 			},
@@ -32,6 +33,17 @@
 		},
 		{
 			"name": "add event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -72,7 +84,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"apikey\": \"ZDUxNDQ4MWEtNGQyNy00ZjEyLWE3MzQtNzkwODMxY2FkODYwfEFSR19DSElMRV8wOS0yMDIx\"\r\n}"
+					"raw": "{\r\n    \"apikey\": \"Nzc1N2U0MTctYTUwMy00M2RmLTlmYjAtNDE4ZDhkODk5MTI5fEFSR19DSElMRV8wOS0yMDIx\"\r\n}"
 				},
 				"url": {
 					"raw": "localhost:8010/api/auth/access-token",
