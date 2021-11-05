@@ -14,6 +14,12 @@ class EventsApi{
         return {id: event.id, apiKey: event.apiKey};
     }
 
+    async buscarPorId(id){
+        let evento = await dao.getById(id);
+        delete evento.apiKey
+        return evento
+    }
+
     async buscarPorApiKey(apikey){
         return await dao.getByApiKey(apikey);
     }

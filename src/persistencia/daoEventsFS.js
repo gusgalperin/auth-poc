@@ -18,9 +18,19 @@ class DaoEventsFs {
         await fs.promises.writeFile(this.ruta, txt)
     }
 
+    async getById(id){
+        const events = await this.getAll()
+        return events.find(x => x.id == id);
+    }
+
     async getByApiKey(apikey){
         const events = await this.getAll()
         return events.find(x => x.apiKey == apikey);
+    }
+
+    async deleteAll(){
+        const txt = JSON.stringify([], null, 2)
+        await fs.promises.writeFile(this.ruta, txt)
     }
 }
 

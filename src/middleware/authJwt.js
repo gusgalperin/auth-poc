@@ -10,8 +10,7 @@ async function verifyToken (req, res, next) {
     }
 
     try {
-        const event = await checkJwt(token)
-        console.log('token decoded: ' + event.id + " " + event.apiKey)
+        const event = checkJwt(token)
     } catch (err) {
         res.status(401)
         res.send(err.message);

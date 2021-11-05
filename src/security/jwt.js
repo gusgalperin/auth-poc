@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken'
 import {SECRET} from '../config.js'
 
-async function checkJwt(token){
+function checkJwt(token){
     try{
-        const decoded = await jwt.verify(token, SECRET);
+        const decoded = jwt.verify(token, SECRET);
         return decoded;
     }
     catch(err){
